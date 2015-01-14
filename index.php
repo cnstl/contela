@@ -8,7 +8,7 @@
 try {
   require_once './core/lightMVC.php';  // lightMVC framework
   require_once './core/config.php';    // config   loads config from file
-  require_once './core/presets.php';   // presets  assigning 
+  require_once './core/presets.php';   // presets  assigning the LightMVC variables based on config
   require_once './core/session.php';   // session  user login management
   require_once './core/lang.php';      // language loads language strings and methods
   require_once './core/router.php';    // router   loads actual code of a module
