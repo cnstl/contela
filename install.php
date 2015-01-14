@@ -3,8 +3,11 @@
  * @author Paweł Abramowicz <http://abramowicz.org>
  */
 
-$addr = 'config.json';
-$cfg = <<<end_of_cfg
+if (isset($_POST['commit'])) {
+
+$addr = empty($_POST['cfg']) ? 'config.json' : $_POST['cfg'];
+
+$config_php = <<<end_of_config
 <?php
 /**
  * Contela
@@ -13,8 +16,36 @@ $cfg = <<<end_of_cfg
  */
 
 _Controller::$config = json_decode(file_get_contents('{json address}'));
-end_of_cfg;
+end_of_config;
 
+$cfg_table = array(
+  'db' => array(
+  
+  ),
+  'title' => array(empty($_POST['title']) ? 'Contela' : $_POST['title']),
+  'url' => empty($_POST['url']) ? dirname($_SERVER['PHP_SELF']) : $_POST['title']
+);
+  if ($cfg_table['url'] == '.')
+    $cfg_table['url'] = '/';
+  else
+    $cfg_table['url'] .= '/';
 
-$cfg = str_replace('{json address}', $addr);
-file_put_contents($addr, $cfg);
+  $cfg = str_replace('{json address}', $addr);
+  file_put_contents('core/config.php', $cfg);
+
+  file_put_contents
+  // TODO do the json.
+  // TODO do the db.
+
+  echo "Committed";
+
+} elseif (file_exists('core/config.php')) {
+  echo "Already installed &ndash; delete config.php and config.json files before reinstalling";
+} else {
+?>
+<!-- TODO FORM -->
+<form action="install.php">
+
+</form>
+<?php
+}
