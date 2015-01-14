@@ -1,2 +1,2 @@
-# contela
-Contela is an open source CMS platform in its early stages of development.
+# Contela
+Contela is a light-weight, modular open source CMS platform in its early stages of development. To achieve feather-light structure, we'll use minimalist, but extremely functional solutions, like [Light MVC](http://www.forumweb.pl/porady-i-tutoriale-www/php-php-light-mvc,56553), a polish minimal MVC framework and [Trumbowyg](https://github.com/Alex-D/Trumbowyg), a small WYSIWYG content editor.
