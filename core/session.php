@@ -70,10 +70,9 @@ class Session extends _Model {
 }
 
 // provide basic session management
-// TODO: empty the session, not nullify it.
+
 if (isset($_GET['logout'])) {
   Session::logout();
-  $session = null;
-} else {
-  $session = new Session;
 }
+
+$session = new Session;
